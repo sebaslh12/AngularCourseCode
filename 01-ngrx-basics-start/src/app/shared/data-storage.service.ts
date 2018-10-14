@@ -21,13 +21,13 @@ export class DataStorageService {
     //   params: new HttpParams().set('auth', token)
     //   // headers: headers
     // });
-    const req = new HttpRequest('PUT', 'https://ng-recipe-book-f1fdb.firebaseio.com/', this.recipeService.getRecipes(), {reportProgress: true});
+    const req = new HttpRequest('PUT', 'https://ng-recipe-book-f1fdb.firebaseio.com/recipes.json', this.recipeService.getRecipes(), {reportProgress: true});
     return this.httpClient.request(req);
   }
 
   getRecipes() {
     // this.httpClient.get<Recipe[]>('https://ng-recipe-book-f1fdb.firebaseio.com/?auth=' + token)
-    this.httpClient.get<Recipe[]>('https://ng-recipe-book-f1fdb.firebaseio.com/', {
+    this.httpClient.get<Recipe[]>('https://ng-recipe-book-f1fdb.firebaseio.com/recipes.json', {
       observe: 'body',
       responseType: 'json'
     })
